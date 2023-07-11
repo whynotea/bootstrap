@@ -1,0 +1,19 @@
+#!/bin/zsh
+export BOOTSTRAP=`dirname ${0}`
+include_dir="$BOOTSTRAP/include"
+includes=""
+if [ -d $include_dir ]; then
+  includes=`find -L $include_dir -maxdepth 1 -mindepth 1 -type d`
+fi
+
+for include in ${=includes};
+do
+  dir_name=`basename "$include"`
+  dir_name_upper=`echo $dir_name | tr '[a-z]' '[A-Z]'`
+  eval export BOOTSTRAP_${dir_name_upper}="$include"
+done
+
+if [ -n "$BOOTSTRAP_ZSH" ] && [ -f "$BOOTSTRAP_ZSH/zshrc" ]; then
+  source $BOOTSTRAP_ZSH/zshrc
+fi
+
