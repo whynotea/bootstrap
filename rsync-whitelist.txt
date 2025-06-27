@@ -1,0 +1,16 @@
+- .git*
++ .xdg/
++ .xdg/data/
+- .xdg/data/zsh
+- .xdg/data/oh-my-zsh/log
++ .xdg/data/oh-my-zsh/***
++ .xdg/cache/
+- .xdg/cache/p10k-*
++ .xdg/cache/gitstatus/***
+- .xdg/*
++ README.md
++ .p10k.zsh
++ .zshrc
++ bootstrap
++ rsync-whitelist.txt
+- *
