@@ -29,17 +29,16 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # The list of segments shown on the left. Fill it with the most important segments.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
-    os_icon                 # os identifier
-    context                 # user@hostname
-    dir                     # current directory
-    vcs                     # git status
-    # =========================[ Line #2 ]=========================
-    newline                 # \n
-    # prompt_char           # prompt symbol
-  )
+  my_left_prompt_elements=(dir prompt_char)
+  # --- Conditional Logic for VCS ---
+  if [[ "$WHYNOTEA_P10K_SHOW_GIT" == "true" ]]; then
+    my_left_prompt_elements+=(vcs)
+  fi
+  my_left_prompt_elements+=(newline)
+  # --- End Conditional Logic ---
+
+  # Assign your custom arrays to the Powerlevel10k variables
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=("${my_left_prompt_elements[@]}")
 
   # The list of segments shown on the right. Fill it with less important segments.
   # Right prompt on the last prompt line (where you are typing your commands) gets
