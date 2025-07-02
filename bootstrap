@@ -18,8 +18,3 @@ do
   dir_name_upper=`echo $dir_name | tr '[a-z]' '[A-Z]'`
   eval export BOOTSTRAP_${dir_name_upper}="$include"
 done
-
-if [ -n "$BOOTSTRAP_ZSH" ] && [ -f "$BOOTSTRAP_ZSH/zshrc" ]; then
- source $BOOTSTRAP_ZSH/zshrc
-fi
-

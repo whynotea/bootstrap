@@ -10,7 +10,9 @@
 - .xdg/*
 + README.md
 + .p10k.zsh
++ .zprofile
 + .zshrc
++ .zshenv
 + bootstrap
 + rsync-whitelist.txt
 - *

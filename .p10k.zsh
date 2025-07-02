@@ -31,7 +31,7 @@
 
   my_left_prompt_elements=(dir prompt_char)
   # --- Conditional Logic for VCS ---
-  if [[ "$WHYNOTEA_P10K_SHOW_GIT" == "true" ]]; then
+  if [[ "$WHYNOTEA_P10K_DISABLE_GIT" != "true" ]]; then
     my_left_prompt_elements+=(vcs)
   fi
   my_left_prompt_elements+=(newline)
